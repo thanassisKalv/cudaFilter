@@ -4,6 +4,12 @@
 const int TILE_DIM = 32;
 const int BLOCK_ROWS = 8;
 
+
+/**
+ * the non-square CUDA transpose kernel is
+ * writtern By Amir Hossein Bakhtiary, use as you wish. Shouldn't have any copyright problems.
+ */ 
+// http://amirsworklog.blogspot.gr/2015/01/cuda-matrix-transpose-code.html
 __global__ void transposeCoalesced(double *odata, const double *idata, int rows,int cols)
 {
   	__shared__ double tile[TILE_DIM][TILE_DIM+1];
